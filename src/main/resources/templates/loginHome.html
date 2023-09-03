@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:text="${member.nickname}"></p>
+<p th:text="${member.email}"></p>
+<form action="/logout" method="post">
+    <button type="submit">로그아웃</button>
+</form>
+</body>
+</html>
