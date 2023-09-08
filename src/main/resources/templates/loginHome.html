@@ -7,8 +7,6 @@
 <body>
 <p th:text="${member.nickname}"></p>
 <p th:text="${member.email}"></p>
-<form action="/logout" method="post">
-    <button type="submit">로그아웃</button>
-</form>
+<a href="https://kauth.kakao.com/oauth/logout?client_id=ced4991c0aeab040d5182416037bc9cc&logout_redirect_uri=http://localhost:8080/logout">로그아웃</a>
 </body>
 </html>

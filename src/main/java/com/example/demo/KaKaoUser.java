@@ -35,6 +35,7 @@ public class KaKaoUser {
         String nickName = profile.getString("nickname");
         String email = kakao_account.getString("email");
 
+        System.out.println("jsonObject = " + jsonObject);
         Member member = new Member();
         member.setId(1L);
         member.setNickname(nickName);
