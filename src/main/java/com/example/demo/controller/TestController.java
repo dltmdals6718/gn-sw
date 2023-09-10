@@ -4,6 +4,8 @@ package com.example.demo.controller;
 import com.example.demo.KaKaoToken;
 import com.example.demo.KaKaoUser;
 import com.example.demo.Member;
+import com.example.demo.Schedule;
+import jakarta.jws.WebParam;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -68,6 +71,36 @@ public class TestController {
         cookie.setMaxAge(0);
         response.addCookie(cookie);
         return "redirect:/";
+    }
+
+    //일정 리스트 페이지
+    @GetMapping("/scheduleList")
+    public String scheduleList (Model model) {
+
+
+        return "scheduleList";
+    }
+
+    //일정 만들기 페이지
+    @GetMapping("/scheduleService")
+    public String scheduleService (Model model) {
+        //List<Schedule> schedules =
+        //model.addAttribute
+        return "scheduleService";
+    }
+
+    //관광지 상세보기 페이지
+    @GetMapping("/spot")
+    public String spot (Model model) {
+
+        return "spot";
+    }
+
+    //일정 상세 보기 페이지
+    @GetMapping("/viewSchedule")
+    public String viewSchedule (Model model) {
+
+        return "viewSchedule";
     }
 }
 
