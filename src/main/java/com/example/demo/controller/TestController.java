@@ -62,7 +62,7 @@ public class TestController {
         }
     }
 
-    @GetMapping("/logout")
+    @PostMapping("/logout")
     public String logout(HttpServletResponse response) {
         Cookie cookie = new Cookie("memberId", null);
         cookie.setMaxAge(0);
