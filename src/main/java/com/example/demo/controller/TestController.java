@@ -43,13 +43,8 @@ public class TestController {
     }
 
     @GetMapping("/")
-    public String home(HttpServletRequest request, Model model) {
-        HttpSession session = request.getSession(false);
-        if(session==null) {
-            return "home";
-        }
+    public String home(@SessionAttribute(name=SessionConst.LOGIN_MEMBER, required = false) Member loginMember, Model model) {
 
-        Member loginMember = (Member)session.getAttribute(SessionConst.LOGIN_MEMBER);
         if(loginMember==null) {
             return "home";
         }
