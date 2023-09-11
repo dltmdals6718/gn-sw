@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class KaKaoUser {
     private final String loginUri = "https://kapi.kakao.com/v2/user/me";
-    private final String logoutUri = "";
 
     public Member login(String access_token) {
         RestTemplate restTemplate = new RestTemplate();

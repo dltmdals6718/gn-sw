@@ -21,24 +21,17 @@ public class KaKaoToken {
     private final String clientId = "ced4991c0aeab040d5182416037bc9cc"; // 깃허브에 올리기전에 clientId를 숨겨보자
     private final String redirectUri = "http://localhost:8080/kakao/test";
 
-    @Value("${client_secret}")
-    private String client_secret; // 보안을 위해 client_secret 사용
     public Map getToken(String ingaCode) {
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-        //posterForEntity: POST 요청을 보내고 결과로 ResponseEntity로 반환받는다
-        //request? 요청 파라미터
-        //ResponseEntity<Map> stringResponseEntity = restTemplate.postForEntity(uri1, null, Map.class);
-
         MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
         map.add("grant_type", grantType);
         map.add("client_id", clientId);
         map.add("redirect_uri", redirectUri);
         map.add("code", ingaCode);
-        map.add("client_secret", client_secret);
 
         HttpEntity<MultiValueMap> request = new HttpEntity<>(map, httpHeaders);
         ResponseEntity<Map> stringResponseEntity = restTemplate.postForEntity(tokenUri, request, Map.class);
