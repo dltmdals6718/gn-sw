@@ -1,0 +1,8 @@
+CREATE DATABASE gn_sw;
+
+CREATE TABLE MEMBER (
+    id bigint,
+    nickname VARCHAR(255),
+    email VARCHAR(255),
+    PRIMARY KEY(id)
+);
