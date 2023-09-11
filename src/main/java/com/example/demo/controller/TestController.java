@@ -24,22 +24,18 @@ import java.util.Map;
 public class TestController {
 
     private final KaKaoToken kaKaoToken;
-    private final KaKaoUser kaKaoUser; // 유저 클래스 싱글톤으로하면 문제있으니 추후에 수정하자.
-    private final MemberRepository memberRepository;
+    private final KaKaoUser kaKaoUser;
+    private final MemberRepository memberRepository; // 추후에 service AutoWired해야할듯
 
     @GetMapping("kakao/test")
     public String kakaoOauth(@RequestParam(name="code", required = false) String ingaCode, HttpServletRequest request) {
 
         Map<String, String> token = kaKaoToken.getToken(ingaCode);
-        Member member = kaKaoUser.login(token.get("access_token")); // id=1L, nickname, email 처리
+        Member member = kaKaoUser.login(token.get("access_token"));
 
         Member findMember = memberRepository.findById(member.getId()).orElse(null);
-        if(findMember==null) {
-            System.out.println("새로운 회원입니다.");
+        if(findMember==null)
             memberRepository.save(member);
-        } else {
-            System.out.println("기존 회원입니다.");
-        }
 
         HttpSession session = request.getSession();
         session.setAttribute(SessionConst.LOGIN_MEMBER, member);

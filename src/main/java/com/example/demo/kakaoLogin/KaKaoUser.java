@@ -39,7 +39,4 @@ public class KaKaoUser {
         return member;
     }
 
-    public void logout() {
-
-    }
 }
