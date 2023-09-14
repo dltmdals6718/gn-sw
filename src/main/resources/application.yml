@@ -1,20 +1,22 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/gnsw
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+    url: jdbc:mysql://localhost:3306/trip?serverTimezone=Asia/Seoul
+    username: root
+    password: qls515
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
+        show_sql: true
 
 logging:
   level:
     org.hibernate.SQL : debug
     org.hibernate.type : trace
+
 server:
-port: 8080
+  port: 8070

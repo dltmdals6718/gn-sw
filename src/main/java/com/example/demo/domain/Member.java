@@ -21,6 +21,4 @@ public class Member {
 
   @OneToMany(mappedBy = "member")
   private List<Schedule> schedules = new ArrayList<>();
-
-
 }
