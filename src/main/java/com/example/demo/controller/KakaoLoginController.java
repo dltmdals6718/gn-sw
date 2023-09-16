@@ -6,22 +6,18 @@ import com.example.demo.domain.Member;
 import com.example.demo.kakaoLogin.KaKaoUser;
 import com.example.demo.repository.MemberRepository;
 import com.example.demo.session.SessionConst;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
-public class TestController {
+public class KakaoLoginController {
 
     private final KaKaoToken kaKaoToken;
     private final KaKaoUser kaKaoUser;
